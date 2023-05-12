@@ -1,11 +1,13 @@
 //You can edit ALL of the code here
+let allEpisodes = getAllEpisodes()
 function setup() {
-  const allEpisodes = getAllEpisodes();
+  let allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
   const rootElem = document.getElementById("root");
+  rootElem.innerHTML = "";
   // rootElem.textContent = `Got $(episodeList.length) episode(s)`;
 
   episodeList.forEach((episode)=> {
@@ -34,16 +36,44 @@ function makePageForEpisodes(episodeList) {
 
 window.onload = setup;
 
-//   for(let i =0; i < episodeList.lengths; i++) {
-//     const div1 = document.createElement("div");
-//     div1.classList.add("div1");
-//     rootElem.appendChild(div1)
+// (level 200-Add Searchbar)
+
+// get search bar Element
+// const searchInput = document.getElementById("searchInput");
+
+// searchInput.addEventListener("input", findEpisode)
+
+// function findEpisode() {
+// const searchInput = document.getElementById("searchInput").value.toLowerCase();
+// const filterEpisode = allEpisodes.filter(episode =>{
+//   if(episode.name.toLowerCase().includes(searchInput)||episode.summary.toLowerCase().includes(searchInput)) {
+//     return episode
 //   }
+// })
+// document.querySelector("#number").innerText = filterEpisode.length;
+// makePageForEpisodes(filterEpisode);
+// };
 
+// level3-
+// let selectElm = document.getElementById("select");
+// let optionElm = document.createElement("option");
+// optionElm.appendChild(optionElm);
 
-//   div1.innerHTML =`<h2>${episodeList[i].name}-${episodeList[i].season} -${episodeList[i].number}</h2>
-//   <img src="${episodeList[i].image.medium}">
-//    <p>${episodeList[i].summary}</p>`;
-// }
-// window.onload = setup;
+// allEpisodes.forEach(elm => {
+//   let optionEpisode = document.createElement("option");
+//   optionEpisode.value = elm.name;
+//   optionEpisode.innerText = `${elm.name} - S${elm.season.toString().padStart(2, "0")}E${elm.number.toString().padStart(2, "0")};`
 
+//   selectElm.appendChild(optionEpisode);
+// });
+
+// selectElm.addEventListener("change", function(){
+//   let selected = selectElm.value;
+// })
+
+// episodes.forEach((episode) => {
+//   let h1Element = episode.querySelector
+
+// })
+
+  
