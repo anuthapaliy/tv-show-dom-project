@@ -1,14 +1,5 @@
 
 let allShows = getAllShows();
-function setup() {
-  // makePageForEpisodes(showAllShows)
-  // fetch('https://api.tvmaze.com/shows')
-  // .then((response) => {
-  //   return response.json();
-  // })
-  // .then((allShows) => {
-    makePageForShows(allShows);
-}
 allShows.sort(function (a,b) {
   return a.name.localeCompare(b.name);
 })
@@ -17,7 +8,7 @@ let allEpisodes =  getAllEpisodes();
 // let allShows = getAllShows();
 
 
-// Level-500
+
 // function findShow() {
 //   const showListing = document.getElementById("showListing").value.toLowerCase();
 //   const filterShow = allShows.filter(show => {
@@ -29,81 +20,78 @@ let allEpisodes =  getAllEpisodes();
 //   makePageForShows(filterShow);
 // };
 
-function makePageForShows(showList) {
-  const showsListingDiv = document.getElementById("show-listing");
-  // showsListingDiv.innerHTML = "";
+// function makePageForShows(shows) {
+//   const showsListingDiv = document.getElementById("shows-listing");
+//   showsListingDiv.innerHTML = "";
 
-  showList.forEach((show) => {
-    const showElem = document.createElement("div");
-    showElem.classList.add("show");
+//   shows.forEach((show) => {
+//     const showElem = document.createElement("div");
+//     showElem.classList.add("show");
 
-    const imageElem = document.createElement("img");
-    imageElem.src = show.image.medium;
-    showElem.appendChild(imageElem);
+//     const imageElem = document.createElement("img");
+//     imageElem.src = show.image.medium;
+//     showElem.appendChild(imageElem);
 
-    const nameElem = document.createElement("h2");
-    nameElem.innerText = show.name;
-    showElem.appendChild(nameElem);
+//     const nameElem = document.createElement("h2");
+//     nameElem.textContent = show.name;
+//     showElem.appendChild(nameElem);
 
-    const summaryElem = document.createElement("p");
-    summaryElem.innerText = show.summary;
-    showElem.appendChild(summaryElem);
+//     const summaryElem = document.createElement("p");
+//     summaryElem.innerHTML = show.summary;
+//     showElem.appendChild(summaryElem);
 
-    const genresElem = document.createElement("p");
-    genresElem.innerText = `Genres: ${show.genres}`;
-    showElem.appendChild(genresElem);
+//     const genresElem = document.createElement("p");
+//     genresElem.textContent = `Genres: ${show.genres.join(", ")}`;
+//     showElem.appendChild(genresElem);
 
-    const statusElem = document.createElement("p");
-    statusElem.innerText = `Status: ${show.status}`;
-    showElem.appendChild(statusElem);
+//     const statusElem = document.createElement("p");
+//     statusElem.textContent = `Status: ${show.status}`;
+//     showElem.appendChild(statusElem);
 
-    const ratingElem = document.createElement("p");
-    ratingElem.innerText = `Rating: ${show.rating.average}`;
-    showElem.appendChild(ratingElem);
+//     const ratingElem = document.createElement("p");
+//     ratingElem.textContent = `Rating: ${show.rating.average}`;
+//     showElem.appendChild(ratingElem);
 
-    const runtimeElem = document.createElement("p");
-    runtimeElem.innerText = `Runtime: ${show.runtime}`;
-    showElem.appendChild(runtimeElem);
+//     const runtimeElem = document.createElement("p");
+//     runtimeElem.textContent = `Runtime: ${show.runtime} minutes`;
+//     showElem.appendChild(runtimeElem);
 
-    // Add event listener to show name
-    // showElem.addEventListener("click", () => {
-    //   displayEpisodeListing(show);
-    //   fetchEpisodes(show.id);
-    // });
+//     // Add event listener to show name
+//     showElem.addEventListener("click", () => {
+//       displayEpisodeListing(show);
+//       fetchEpisodes(show.id);
+//     });
 
-    showsListingDiv.appendChild(showElem);
-  });
-}
-
-
-window.onload = setup;
+//     showsListingDiv.appendChild(showElem);
+//   });
+// }
 
 // level 500 practice complete
 
-// function setup() {
-//   // makePageForEpisodes(showAllShows)
-//   // fetch('https://api.tvmaze.com/shows')
-//   // .then((response) => {
-//   //   return response.json();
-//   // })
-//   // .then((allShows) => {
+function setup() {
+  // makePageForEpisodes(showAllShows)
+//   fetch('https://api.tvmaze.com/shows')
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((allShows) => {
 //     makePageForShows(allShows);
+
+//     // Add a navigation link to enable the user to return to the "shows listing"
+//     const backToShowsLink = document.createElement("a");
+//     backToShowsLink.href = "#";
+//     backToShowsLink.innerText = "Back to Shows";
+//     document.getElementById("episodes-listing").appendChild(backToShowsLink);
+
+//     backToShowsLink.addEventListener("click", () => {
+//       document.getElementById("episodes-listing").style.display = "none";
+//       document.getElementById("shows-listing").style.display = "block";
+//     });
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 // }
-    // Add a navigation link to enable the user to return to the "shows listing"
-    // const backToShowsLink = document.createElement("a");
-    // backToShowsLink.href = "#";
-    // backToShowsLink.innerText = "Back to Shows";
-    // document.getElementById("episodes-listing").appendChild(backToShowsLink);
-
-  //   backToShowsLink.addEventListener("click", () => {
-  //     document.getElementById("episodes-listing").style.display = "none";
-  //     document.getElementById("shows-listing").style.display = "block";
-  //   });
-  
-  // .catch((error) => {
-  //   console.log(error);
-  // });
-
 
 // level 500 practice more
 
@@ -193,7 +181,9 @@ window.onload = setup;
 
 
 function makePageForEpisodes(episodeList) {
-  const rootElem = document.getElementById("root");
+
+
+   const rootElem = document.getElementById("root");
   rootElem.innerHTML = "";
   // rootElem.textContent = `Got $(episodeList.length) episode(s)`;
 
@@ -221,7 +211,7 @@ function makePageForEpisodes(episodeList) {
 });
 }
 
-// window.onload = setup;
+window.onload = setup;
 
 // (level 200-Add Searchbar)
 
@@ -297,43 +287,48 @@ function setup() {
 
   // level 400-:
   let showListElm = document.getElementById("show-list");
+
   let showOptionElm = document.createElement("option");
   showOptionElm.innerText = "Select a show from the list";
   showListElm.appendChild(showOptionElm);
+  // showListElm.innerHTML = "";
 
 
-// fv 
-function showAllShows(){
-  allShows.forEach((show)=> {
+
+function showAllShows(listOfShows){
+// console.log(listOfShows)
+  listOfShows.forEach((show)=> {
 let option = document.createElement("option");
 option.innerText = show.name;
 showListElm.appendChild(option);
   });
 }
-showAllShows();
+showAllShows(allShows);
+console.log(showAllShows)
 
 let shortedAllShows = allShows.sort();
-console.log(shortedAllShows);
+// console.log(shortedAllShows);
 
 
 showListElm.addEventListener("change", selectAShow)
 function selectAShow() {
+  // showListElm.innerHTML = "";
   const showName = showListElm.value
   const selectedShow = allShows.filter(show => showName === show.name)
+// console.log(selectedShow);
 
   const selectedShowId = selectedShow[0].id;
 
 
-  fetch(`https://api.tvmaze.com/shows/${selectedShow.id}/episodes`)
+  fetch(`https://api.tvmaze.com/shows/${selectedShowId}/episodes`)
+  // fetch(`https://api.tvmaze.com/shows/SHOW_ID/episodes`)
   .then(function (response) {
     return response.json();
 })
 .then((result) => {
-  makePageForEpisodes(result)
-  makePageForShows(result);
-    
+  showAllShows(result)
+  
 })
-
 .catch((error) => {
   console.log(error);
 });
