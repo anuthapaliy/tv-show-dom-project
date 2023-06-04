@@ -68,7 +68,7 @@ let allEpisodes =  getAllEpisodes();
 
 // level 500 practice complete
 
-function setup() {
+// function setup() {
   // makePageForEpisodes(showAllShows)
 //   fetch('https://api.tvmaze.com/shows')
 //   .then((response) => {
@@ -181,7 +181,7 @@ function setup() {
 
 
 function makePageForEpisodes(episodeList) {
-
+console.log(episodeList)
 
    const rootElem = document.getElementById("root");
   rootElem.innerHTML = "";
@@ -198,8 +198,9 @@ function makePageForEpisodes(episodeList) {
 
   // create the episode content
   const nameElem = `<h2>${episode.name} - ${episodeCode}</h2>`;
-  const imageElem = `<img src = "${episode.image.medium}" alt="${episode.name}"/>`;
+  imageElem = `<img src = "${episode.image.medium}" alt="${episode.name}"/>`;
   const summaryElem = `<p>${episode.summary}</p>`;
+
   const linkElem = `<a href="${episode.url}">View on TVMaze.com</a>`; 
 
   // add the content to the episode element
@@ -208,7 +209,7 @@ function makePageForEpisodes(episodeList) {
   // add the episode element to the root element
   rootElem.appendChild(episodeElem);
 
-});
+})
 }
 
 window.onload = setup;
@@ -232,10 +233,10 @@ makePageForEpisodes(filterEpisode);
 };
 
 // level300-
-let selectElm = document.getElementById("select");
+let episodeSelectElm = document.getElementById("select");
 let optionElm = document.createElement("option");
 optionElm.innerText = "Select Episodes";
-selectElm.appendChild(optionElm);
+episodeSelectElm.appendChild(optionElm);
 
 allEpisodes.forEach(elm => {
   
@@ -243,11 +244,11 @@ allEpisodes.forEach(elm => {
   optionEpisode.value = elm.name;
   optionEpisode.innerText = `${elm.name} - S${elm.season.toString().padStart(2, "0")}E${elm.number.toString().padStart(2, "0")};`
 
-  selectElm.appendChild(optionEpisode);
+  episodeSelectElm.appendChild(optionEpisode);
 });
 
-selectElm.addEventListener("change", function(){
-  let selectedEpisode = selectElm.value;
+episodeSelectElm.addEventListener("change", function(){
+  let selectedEpisode = episodeSelectElm.value;
    const chosenEpisode = allEpisodes.filter((episode) => {
  if(episode.name.includes(selectedEpisode || episode.summary.includes(selectedEpisode))) {
   // console.log(selectedEpisode);
@@ -286,11 +287,11 @@ function setup() {
   
 
   // level 400-:
-  let showListElm = document.getElementById("show-list");
+  let showSelectElm = document.getElementById("show-list");
 
   let showOptionElm = document.createElement("option");
   showOptionElm.innerText = "Select a show from the list";
-  showListElm.appendChild(showOptionElm);
+  showSelectElm.appendChild(showOptionElm);
   // showListElm.innerHTML = "";
 
 
@@ -300,20 +301,22 @@ function showAllShows(listOfShows){
   listOfShows.forEach((show)=> {
 let option = document.createElement("option");
 option.innerText = show.name;
-showListElm.appendChild(option);
+showSelectElm.appendChild(option);
   });
 }
 showAllShows(allShows);
 console.log(showAllShows)
 
 let shortedAllShows = allShows.sort();
-// console.log(shortedAllShows);
+ console.log('sorted shows -> ', shortedAllShows);
 
 
-showListElm.addEventListener("change", selectAShow)
+showSelectElm.addEventListener("change", selectAShow)
+
+// global
 function selectAShow() {
   // showListElm.innerHTML = "";
-  const showName = showListElm.value
+  const showName = showSelectElm.value
   const selectedShow = allShows.filter(show => showName === show.name)
 // console.log(selectedShow);
 
@@ -326,7 +329,7 @@ function selectAShow() {
     return response.json();
 })
 .then((result) => {
-  showAllShows(result)
+  makePageForEpisodes(result)
   
 })
 .catch((error) => {
