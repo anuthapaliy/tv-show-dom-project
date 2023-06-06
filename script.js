@@ -20,51 +20,52 @@ let allEpisodes =  getAllEpisodes();
 //   makePageForShows(filterShow);
 // };
 
-// function makePageForShows(shows) {
-//   const showsListingDiv = document.getElementById("shows-listing");
-//   showsListingDiv.innerHTML = "";
+// level 500
+function makePageForShows(shows) {
+  const showsListingDiv = document.getElementById("shows-listing");
+  showsListingDiv.innerHTML = "";
 
-//   shows.forEach((show) => {
-//     const showElem = document.createElement("div");
-//     showElem.classList.add("show");
+  shows.forEach((show) => {
+    const showElem = document.createElement("div");
+    showElem.classList.add("show");
 
-//     const imageElem = document.createElement("img");
-//     imageElem.src = show.image.medium;
-//     showElem.appendChild(imageElem);
+    const imageElem = document.createElement("img");
+    imageElem.src = show.image.medium;
+    showElem.appendChild(imageElem);
 
-//     const nameElem = document.createElement("h2");
-//     nameElem.textContent = show.name;
-//     showElem.appendChild(nameElem);
+    const nameElem = document.createElement("h2");
+    nameElem.textContent = show.name;
+    showElem.appendChild(nameElem);
 
-//     const summaryElem = document.createElement("p");
-//     summaryElem.innerHTML = show.summary;
-//     showElem.appendChild(summaryElem);
+    const summaryElem = document.createElement("p");
+    summaryElem.innerHTML = show.summary;
+    showElem.appendChild(summaryElem);
 
-//     const genresElem = document.createElement("p");
-//     genresElem.textContent = `Genres: ${show.genres.join(", ")}`;
-//     showElem.appendChild(genresElem);
+    const genresElem = document.createElement("p");
+    genresElem.textContent = `Genres: ${show.genres.join}`;
+    showElem.appendChild(genresElem);
 
-//     const statusElem = document.createElement("p");
-//     statusElem.textContent = `Status: ${show.status}`;
-//     showElem.appendChild(statusElem);
+    const statusElem = document.createElement("p");
+    statusElem.textContent = `Status: ${show.status}`;
+    showElem.appendChild(statusElem);
 
-//     const ratingElem = document.createElement("p");
-//     ratingElem.textContent = `Rating: ${show.rating.average}`;
-//     showElem.appendChild(ratingElem);
+    const ratingElem = document.createElement("p");
+    ratingElem.textContent = `Rating: ${show.rating.average}`;
+    showElem.appendChild(ratingElem);
 
-//     const runtimeElem = document.createElement("p");
-//     runtimeElem.textContent = `Runtime: ${show.runtime} minutes`;
-//     showElem.appendChild(runtimeElem);
+    const runtimeElem = document.createElement("p");
+    runtimeElem.textContent = `Runtime: ${show.runtime} minutes`;
+    showElem.appendChild(runtimeElem);
 
-//     // Add event listener to show name
-//     showElem.addEventListener("click", () => {
-//       displayEpisodeListing(show);
-//       fetchEpisodes(show.id);
-//     });
+    // Add event listener to show name
+    showElem.addEventListener("click", () => {
+      displayEpisodeListing(show);
+      fetchEpisodes(show.id);
+    });
 
-//     showsListingDiv.appendChild(showElem);
-//   });
-// }
+    showsListingDiv.appendChild(showElem);
+  });
+}
 
 // level 500 practice complete
 
@@ -128,55 +129,8 @@ let allEpisodes =  getAllEpisodes();
 //     episodesListingDiv.style.display = "block";
 //   }
 
-//   function createShowElements() {
-//     const showsContainer = document.createElement("div");
-//     showsContainer.classList.add("shows-container");
 
-//     allShows.forEach((show) => {
-//       const showElem = document.createElement("div");
-//       showElem.classList.add("show");
 
-//       const imageElem = document.createElement("img");
-//       imageElem.src = show.image.medium;
-//       showElem.appendChild(imageElem);
-
-//       const nameElem = document.createElement("h2");
-//       nameElem.textContent = show.name;
-//       showElem.appendChild(nameElem);
-
-//       const summaryElem = document.createElement("p");
-//       summaryElem.innerHTML = show.summary;
-//       showElem.appendChild(summaryElem);
-
-//       const genresElem = document.createElement("p");
-//       genresElem.textContent = `Genres: ${show.genres.join(", ")}`;
-//       showElem.appendChild(genresElem);
-
-//       const statusElem = document.createElement("p");
-//       statusElem.textContent = `Status: ${show.status}`;
-//       showElem.appendChild(statusElem);
-
-//       const ratingElem = document.createElement("p");
-//       ratingElem.textContent = `Rating: ${show.rating.average}`;
-//       showElem.appendChild(ratingElem);
-
-//       const runtimeElem = document.createElement("p");
-//       runtimeElem.textContent = `Runtime: ${show.runtime} minutes`;
-//       showElem.appendChild(runtimeElem);
-
-//       // Add event listener to show name
-//       showElem.addEventListener("click", () => {
-//         displayEpisodeListing(show);
-//         fetchEpisodes(show.id);
-//       });
-
-//       showsContainer.appendChild(showElem);
-//     });
-
-//     showsListingDiv.innerHTML = "";
-//     showsListingDiv
-
-// // level 500 complete
 
 
 
