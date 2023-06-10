@@ -43,7 +43,7 @@ function makePageForShows(shows) {
     showElem.appendChild(summaryElem);
 
     const genresElem = document.createElement("p");
-    genresElem.textContent = `Genres: ${show.genres.join}`;
+    genresElem.textContent = `Genres: ${show.genres.join(',')}`;
     showElem.appendChild(genresElem);
 
     const statusElem = document.createElement("p");
@@ -68,10 +68,10 @@ function makePageForShows(shows) {
   });
 }
 
-// level 500 practice complete
+// level 500 practice complete------------
 
 // function setup() {
-  // makePageForEpisodes(showAllShows)
+//   makePageForEpisodes(showAllShows)
 //   fetch('https://api.tvmaze.com/shows')
 //   .then((response) => {
 //     return response.json();
@@ -95,7 +95,7 @@ function makePageForShows(shows) {
 //   });
 // }
 
-// level 500 practice more
+// level 500 practice more-------
 
 // const showsListing = document.getElementById("showListing");
 
@@ -112,7 +112,7 @@ function makePageForShows(shows) {
 // makePageForShows(filterShow);
 // };
 
-// complete
+// complete----------
 
 
 // window.onload = function () {
@@ -129,6 +129,7 @@ function makePageForShows(shows) {
 //     // showsListingDiv.style.display = "none";
 //     episodesListingDiv.style.display = "block";
 //   }
+// }
 
 
 
